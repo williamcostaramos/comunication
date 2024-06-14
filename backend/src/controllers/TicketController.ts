@@ -5,15 +5,14 @@ import { getIO } from "../libs/socket";
 import Message from "../models/Message";
 import CreateLogTicketService from "../services/TicketServices/CreateLogTicketService";
 
+import Whatsapp from "../models/Whatsapp";
+import CreateMessageSystemService from "../services/MessageServices/CreateMessageSystemService";
 import CreateTicketService from "../services/TicketServices/CreateTicketService";
 import DeleteTicketService from "../services/TicketServices/DeleteTicketService";
 import ListTicketsService from "../services/TicketServices/ListTicketsService";
 import ShowLogTicketService from "../services/TicketServices/ShowLogTicketService";
 import ShowTicketService from "../services/TicketServices/ShowTicketService";
 import UpdateTicketService from "../services/TicketServices/UpdateTicketService";
-import Whatsapp from "../models/Whatsapp";
-import AppError from "../errors/AppError";
-import CreateMessageSystemService from "../services/MessageServices/CreateMessageSystemService";
 import { pupa } from "../utils/pupa";
 
 type IndexQuery = {
@@ -129,7 +128,6 @@ export const show = async (req: Request, res: Response): Promise<Response> => {
   };
   const scheduledMessages = await Message.findAll({
     where
-    // logging: console.log
   });
 
   ticket.setDataValue("scheduledMessages", scheduledMessages);
