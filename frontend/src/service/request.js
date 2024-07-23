@@ -1,16 +1,18 @@
 import axios from 'axios'
 import Router from '../router/index'
 
+import {Notify} from 'quasar'
 import loading from 'src/utils/loading'
-import { Notify } from 'quasar'
 
 import backendErrors from './erros'
-import { RefreshToken } from './login'
+import {RefreshToken} from './login'
 
 const service = axios.create({
-  baseURL: process.env.VUE_URL_API,
+  baseURL: 'http://localhost:3000',
   timeout: 20000
 })
+
+console.log(process.env.URL_API)
 
 const handlerError = err => {
   const errorMsg = err?.response?.data?.error
@@ -74,8 +76,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     loading.hide(response.config)
-    const res = response
-    const status = res.status
+    const status = response.status
     if (status.toString().substr(0, 1) !== '2') {
       // handlerError(res)
       return Promise.reject('error')

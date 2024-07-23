@@ -3,7 +3,6 @@ import {
   AccountRepositoryCurrentUserResponseUser,
   AccountRepositoryLoginResponseLogged_in_user,
   IgApiClient
-  // IgLoginTwoFactorRequiredError
 } from "instagram-private-api";
 import { IgApiClientMQTT, withFbnsAndRealtime } from "instagram_mqtt";
 import AppError from "../errors/AppError";
@@ -14,8 +13,8 @@ import { logger } from "../utils/logger";
 interface Session extends IgApiClientMQTT {
   id: number;
   accountLogin?:
-  | AccountRepositoryLoginResponseLogged_in_user
-  | AccountRepositoryCurrentUserResponseUser;
+    | AccountRepositoryLoginResponseLogged_in_user
+    | AccountRepositoryCurrentUserResponseUser;
 }
 
 const sessions: Session[] = [];

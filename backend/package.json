@@ -1,6 +1,6 @@
 {
   "name": "backend",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "izing.open.io - sistema de atendimentos multicanal",
   "main": "index.js",
   "scripts": {
@@ -42,8 +42,8 @@
     "fluent-ffmpeg": "^2.1.2",
     "helmet": "^4.4.1",
     "http-graceful-shutdown": "^2.4.0",
-    "instagram_mqtt": "^1.2.2",
     "instagram-private-api": "^1.45.3",
+    "instagram_mqtt": "^1.2.2",
     "ioredis": "^5.2.5",
     "is-base64": "^1.1.0",
     "jsonwebtoken": "^8.5.1",

@@ -22,3 +22,18 @@ export function AtualizarMensagemHorariosAtendiemento (data) {
     data
   })
 }
+
+export function criarEmpresa (data) {
+  return request({
+    url: 'tenants/',
+    method: 'post',
+    data
+  })
+}
+
+export function listaEmpresas () {
+  return request({
+    url: 'tenants',
+    method: 'get'
+  })
+}

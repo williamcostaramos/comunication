@@ -8,6 +8,13 @@ import ShowBusinessHoursAndMessageService from "../services/TenantServices/ShowB
 import UpdateBusinessHoursService from "../services/TenantServices/UpdateBusinessHoursService";
 import UpdateMessageBusinessHoursService from "../services/TenantServices/UpdateMessageBusinessHoursService";
 import UpdateTenantService from "../services/TenantServices/UpdateTenantService";
+import { IndexTenantService } from "../services/TenantServices/IndexTenantService";
+
+interface paginate {
+  size?: number;
+  totalRecords?: number;
+  perPage?: number;
+};
 
 interface TenantData {
   name: string;
@@ -15,6 +22,15 @@ interface TenantData {
   ownerId: string | number;
   messageBusinessHours: string;
 }
+
+export const index = async (
+  req: Request,
+  resp: Response
+): Promise<Response> => {
+  const tenants = await IndexTenantService();
+
+  return resp.status(200).json(tenants);
+};
 
 export const store = async (
   req: Request,

@@ -9,7 +9,7 @@ export default {
   storage: multer.diskStorage({
     destination: publicFolder,
     filename(req, file, cb) {
-      let fileName;
+      let fileName: string;
       if (file.mimetype?.toLocaleLowerCase().endsWith("xml")) {
         fileName = file.originalname;
       } else {
