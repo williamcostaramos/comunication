@@ -178,7 +178,7 @@
 
 <script>
 import { ListarChatFlow } from 'src/service/chatFlow'
-import { ListarConfiguracoes, AlterarConfiguracao } from 'src/service/configuracoes'
+import { AlterarConfiguracao, ListarConfiguracoes } from 'src/service/configuracoes'
 export default {
   name: 'IndexConfiguracoes',
   data () {
@@ -208,6 +208,7 @@ export default {
     },
     async listarChatFlow () {
       const { data } = await ListarChatFlow()
+      console.log(data)
       this.listaChatFlow = data.chatFlow
     },
     async atualizarConfiguracao (key) {

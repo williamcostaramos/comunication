@@ -54,7 +54,7 @@
             <q-menu>
               <q-list style="min-width: 300px">
 
-                <q-item v-if="(parseInt(notifications.count) + parseInt(notifications_p.count)) == 0">
+                <q-item v-if="(parseInt(notifications.count) + parseInt(notifications_p.count)) ===0">
                   <q-item-section style="cursor: pointer;">
                     Nada de novo por aqui!
                   </q-item-section>
@@ -357,6 +357,12 @@ const objMenuAdmin = [
     icon: 'mdi-call-split',
     routeName: 'api-service'
   }
+  // {
+  //   title: 'Empresas',
+  //   caption: 'Cadastro de Empresas',
+  //   icon: 'mdi-domain',
+  //   routeName: 'empresas'
+  // }
 ]
 
 export default {

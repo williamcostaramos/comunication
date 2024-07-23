@@ -1,22 +1,22 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import "reflect-metadata";
-import "express-async-errors";
-import "./config-env";
-import { createServer } from "http";
-import { env } from "process";
+import cors from "cors";
 import express from "express";
+import "express-async-errors";
+import { createServer } from "http";
 import GracefulShutdown from "http-graceful-shutdown";
-import bootstrap from "./boot";
+import { env } from "process";
+import "reflect-metadata";
 import { initIO } from "../libs/socket";
 import { StartAllWhatsAppsSessions } from "../services/WbotServices/StartAllWhatsAppsSessions";
-
+import bootstrap from "./boot";
+import "./config-env";
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default async function application() {
   const app: any = express();
   const httpServer: any = createServer(app);
   const port = app.get("port") || env.PORT || 3100;
-
+  app.use(cors());
   await bootstrap(app);
 
   async function start() {

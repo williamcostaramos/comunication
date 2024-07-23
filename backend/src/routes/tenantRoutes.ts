@@ -5,6 +5,10 @@ import * as TenantController from "../controllers/TenantController";
 
 const tenantRoutes = express.Router();
 
+tenantRoutes.post("/tenants", TenantController.store);
+tenantRoutes.get("/tenants", TenantController.index);
+tenantRoutes.put("/tenants/:tenantId", isAuth, TenantController.updateTenant);
+
 // tenantRoutes.post("/tenants", isAuth, TenantController.store);
 tenantRoutes.get(
   "/tenants/business-hours/",
@@ -21,6 +25,6 @@ tenantRoutes.put(
   isAuth,
   TenantController.updateMessageBusinessHours
 );
-// tenantRoutes.delete("/tenants/:tagId", isAuth, TenantController.remove);
+
 
 export default tenantRoutes;

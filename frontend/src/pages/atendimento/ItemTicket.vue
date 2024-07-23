@@ -14,7 +14,7 @@
       :class="{
         'ticketBorderGrey': !$q.dark.isActive,
         'ticket-active-item': ticket.id === $store.getters['ticketFocado'].id,
-        'ticketNotAnswered': ticket.answered == false && ticket.isGroup == false && ticket.status == 'open'
+        'ticketNotAnswered': ticket.answered === false && ticket.isGroup === false && ticket.status === 'open'
       }"
     >
       <q-item-section
@@ -172,10 +172,10 @@
 </template>
 
 <script>
+import { outlinedAccountCircle } from '@quasar/extras/material-icons-outlined'
 import { formatDistance, parseJSON } from 'date-fns'
 import pt from 'date-fns/locale/pt-BR'
 import mixinAtualizarStatusTicket from './mixinAtualizarStatusTicket'
-import { outlinedAccountCircle } from '@quasar/extras/material-icons-outlined'
 
 export default {
   name: 'ItemTicket',

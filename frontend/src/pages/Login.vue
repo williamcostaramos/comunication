@@ -87,16 +87,6 @@
               </span>
             </q-btn>
           </q-card-actions>
-          <!-- <q-btn
-            flat
-            color="info"
-            no-caps
-            dense
-            class="q-px-sm"
-            label="Esqueci a senha"
-            @click="modalEsqueciSenha=true"
-          /> -->
-
           <q-inner-loading :showing="loading" />
         </q-card>
       </q-page>
@@ -106,7 +96,7 @@
 </template>
 
 <script>
-import { required, email } from 'vuelidate/lib/validators'
+import { email, required } from 'vuelidate/lib/validators'
 
 export default {
   name: 'Login',
@@ -144,6 +134,7 @@ export default {
           //   // logar direto
           // }
           this.loading = false
+          console.log(data)
           // .params = { modalEscolhaUnidadeNegocio: true }
         })
         .catch(err => {

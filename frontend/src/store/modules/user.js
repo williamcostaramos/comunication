@@ -1,6 +1,6 @@
-import { RealizarLogin } from '../../service/login'
-import { Notify, Dark } from 'quasar'
-import { socketIO } from 'src/utils/socket'
+import {Dark, Notify} from 'quasar'
+import {socketIO} from 'src/utils/socket'
+import {RealizarLogin} from '../../service/login'
 
 const socket = socketIO()
 
@@ -42,6 +42,7 @@ const user = {
     async UserLogin ({ commit, dispatch }, user) {
       user.email = user.email.trim()
       try {
+        debugger
         const { data } = await RealizarLogin(user)
         localStorage.setItem('token', JSON.stringify(data.token))
         localStorage.setItem('username', data.username)

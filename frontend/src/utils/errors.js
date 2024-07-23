@@ -213,6 +213,11 @@ const errors = [
     error: 'ERR_NO_PERMISSION',
     description: 'Usuário sem permissão.',
     detail: 'Seu usuário não possui permissão para executar a ação.'
+  },
+  {
+    error: 'ERR_NO_ROLE_FOUND',
+    description: 'regra não encontrada.',
+    detail: 'Verifique se a rule realmente existe, tente novamente atualizando a pagina.'
   }
 
 ]
