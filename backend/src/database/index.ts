@@ -27,6 +27,8 @@ import LogTicket from "../models/LogTicket";
 import ChatFlow from "../models/ChatFlow";
 import * as QueueJobs from "../libs/Queue";
 import { logger } from "../utils/logger";
+import Role from "../models/Role";
+import Feature from "../models/Feature";
 
 interface CustomSequelize extends Sequelize {
   afterConnect?: any;
@@ -65,7 +67,9 @@ const models = [
   ApiConfig,
   ApiMessage,
   LogTicket,
-  ChatFlow
+  ChatFlow,
+  Role,
+  Feature
 ];
 
 sequelize.addModels(models);

@@ -1,10 +1,14 @@
 import Role from "../../models/Role";
+import AppError from "../../errors/AppError";
 
-interface Request {
-  tenantId: string | number;
-}
-
-const listRoleSevices = async (): Promise<Role[]> => {
+export const listRoleSevices = async (): Promise<Role[]> => {
   return await Role.findAll();
 }
-export default listRoleSevices;
+
+export const findOne = async (id: string): Promise<Role> => {
+  const role = await Role.findOne({where: {id: id}});
+  if (!role) {
+    throw new AppError("ERROR_ROLE_NOT_FOUND", 404);
+  }
+  return role;
+}
