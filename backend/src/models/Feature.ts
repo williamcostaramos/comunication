@@ -1,6 +1,6 @@
+import {AutoIncrement, Model, Column, CreatedAt, PrimaryKey, UpdatedAt, Table} from "sequelize-typescript";
 
-import {AutoIncrement, Model, Column, CreatedAt, PrimaryKey, UpdatedAt} from "sequelize-typescript";
-
+@Table({timestamps: false})
 class Feature extends Model<Feature> {
   @PrimaryKey
   @AutoIncrement
@@ -19,4 +19,5 @@ class Feature extends Model<Feature> {
   @UpdatedAt
   updatedAt: Date;
 }
+
 export default Feature;
