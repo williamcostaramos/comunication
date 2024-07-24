@@ -3,7 +3,7 @@ import AppError from "../../errors/AppError";
 
 interface Request {
   name: string,
-  roleId: number,
+  roleId: number | string
 }
 
 const UpdateRoleService = async ({name, roleId}: Request): Promise<Role> => {
@@ -11,9 +11,10 @@ const UpdateRoleService = async ({name, roleId}: Request): Promise<Role> => {
   if (!role) {
     throw new AppError("ERR_NO_ROLE_FOUND", 404);
   }
-  await role.update({name})
+  await role.update({name: name.toUpperCase()});
   await role.reload({attributes: ['id', 'name']});
   return role;
 }
+
 export default UpdateRoleService;
 

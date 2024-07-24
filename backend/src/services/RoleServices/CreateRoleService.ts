@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import AppError from "../../errors/AppError";
 
 interface Request {
-  name: String,
+  name: string,
 }
 
 const CreateRoleService = async (request: Request): Promise<Role> => {
@@ -13,12 +13,12 @@ const CreateRoleService = async (request: Request): Promise<Role> => {
   return await Role.create({name: request.name.toUpperCase()})
 }
 
-const validate = async (request: Request): Promise<boolean> => {
+const validate = async (request:Request): Promise<boolean> => {
   try {
-    const schema = Yup.object({
-      name: Yup.string().required(),
+    const schema = Yup.object().shape({
+      name: Yup.string().required()
     });
-    await schema.validate(request.name);
+    await schema.validate(request);
     return true;
   } catch (error) {
     return false;

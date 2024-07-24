@@ -1,6 +1,6 @@
 
-import {AutoIncrement,Model, Column, CreatedAt, PrimaryKey, UpdatedAt} from "sequelize-typescript";
-
+import {AutoIncrement, Model, Column,  PrimaryKey,  Table} from "sequelize-typescript";
+@Table({ timestamps: false })
 class Role extends Model<Role> {
   @PrimaryKey
   @AutoIncrement
@@ -10,10 +10,5 @@ class Role extends Model<Role> {
   @Column
   name: string;
 
-  @CreatedAt
-  createdAt: Date;
-
-  @UpdatedAt
-  updatedAt: Date;
 }
 export default Role;

@@ -2,7 +2,7 @@ import Role from "../../models/Role";
 import AppError from "../../errors/AppError";
 
 interface Request {
-  roleId: number;
+  roleId: string | number;
 }
 
 const DeleteRoleService = async (request: Request): Promise<void> => {
