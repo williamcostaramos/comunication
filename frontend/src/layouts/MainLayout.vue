@@ -30,6 +30,7 @@
             src="/izing-logo_5_transparent.png"
             spinner-color="primary"
             style="height: 50px; width: 140px"
+            v-if="false"
           />
         </q-btn>
 

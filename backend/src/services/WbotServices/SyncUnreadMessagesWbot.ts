@@ -6,6 +6,7 @@ import FindOrCreateTicketService from "../TicketServices/FindOrCreateTicketServi
 import VerifyContact from "./helpers/VerifyContact";
 import VerifyMediaMessage from "./helpers/VerifyMediaMessage";
 import VerifyMessage from "./helpers/VerifyMessage";
+import { ms } from "date-fns/locale";
 
 interface Session extends Client {
   id?: number;
@@ -17,6 +18,7 @@ const SyncUnreadMessagesWbot = async (
 ): Promise<void> => {
   try {
     const chats = await wbot.getChats();
+    console.log(chats);
     await Promise.all(
       chats.map(async chat => {
         if (chat.unreadCount > 0) {
@@ -49,7 +51,9 @@ const SyncUnreadMessagesWbot = async (
 
           unreadMessages.map(async (msg, idx) => {
             logger.info(`MSG: ${msg}`, msg.id?.id);
-            if (msg.hasMedia) {
+
+            
+            if (msg.hasMedia && msg.type !== "interactive") {
               await VerifyMediaMessage(msg, ticket, contact);
             } else {
               await VerifyMessage(msg, ticket, contact);

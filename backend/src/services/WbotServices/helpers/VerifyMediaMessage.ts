@@ -22,6 +22,8 @@ const VerifyMediaMessage = async (
 
   const media = await msg.downloadMedia();
 
+  console.log(media);
+
   if (!media) {
     logger.error(`ERR_WAPP_DOWNLOAD_MEDIA:: ID: ${msg.id.id}`);
     return;

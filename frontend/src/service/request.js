@@ -1,11 +1,11 @@
 import axios from 'axios'
 import Router from '../router/index'
 
-import {Notify} from 'quasar'
+import { Notify } from 'quasar'
 import loading from 'src/utils/loading'
 
 import backendErrors from './erros'
-import {RefreshToken} from './login'
+import { RefreshToken } from './login'
 
 const service = axios.create({
   baseURL: 'http://localhost:3000',

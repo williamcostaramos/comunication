@@ -19,11 +19,6 @@ const routes = [
         component: () => import('pages/dashboard/DashTicketsFilas.vue')
       },
       {
-        path: '/empresas',
-        name: 'empresas',
-        component: () => import('pages/empresas/Index.vue')
-      },
-      {
         path: '/sessoes',
         name: 'sessoes',
         component: () => import('pages/sessaoWhatsapp/Index.vue')
