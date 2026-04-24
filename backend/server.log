@@ -1,0 +1,69 @@
+
+> backend@2.0.2 dev:server
+> ts-node-dev --inspect=9229 --respawn --transpile-only --ignore node_modules src/server.ts
+
+[INFO] 11:10:36 ts-node-dev ver. 1.1.8 (using ts-node ver. 9.1.1, typescript ver. 4.9.5)
+Debugger listening on ws://127.0.0.1:9229/3a1a3650-617f-4c8a-b7b3-76259898fac0
+For help, see: https://nodejs.org/en/docs/inspector
+(node:51993) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[32minfo[39m: 2026-03-14T14:10:40.571Z Conexão com o PostgreSQL estabelecida com sucesso!
+cors domain ======>>>> http://localhost
+[32minfo[39m: 2026-03-14T14:10:40.573Z express already in server!
+[32minfo[39m: 2026-03-14T14:10:40.574Z database already in server!
+[32minfo[39m: 2026-03-14T14:10:40.575Z modules routes already in server!
+bullMQ started
+[32minfo[39m: 2026-03-14T14:10:40.593Z Started system!!
+Web server listening at: http://0.0.0.0:3000/
+[32minfo[39m: 2026-03-14T14:10:40.632Z SendMessageSchenduled Initiated
+[32minfo[39m: 2026-03-14T14:10:40.640Z FindUpdateTicketsInactiveChatBot Initiated
+[32minfo[39m: 2026-03-14T14:10:40.660Z DATABASE CONNECT
+[32minfo[39m: 2026-03-14T14:10:40.663Z DATABASE DISCONNECT
+[32minfo[39m: 2026-03-14T14:10:40.671Z DATABASE CONNECT
+[32minfo[39m: 2026-03-14T14:10:40.672Z DATABASE CONNECT
+[32minfo[39m: 2026-03-14T14:10:40.673Z DATABASE CONNECT
+[32minfo[39m: 2026-03-14T14:10:40.681Z Finalized FindUpdateTicketsInactiveChatBot
+[32minfo[39m: 2026-03-14T14:10:40.682Z Finalized SendMessageSchenduled
+[32minfo[39m: 2026-03-14T14:10:40.688Z Session TELEGRAM: Telegram 01 - READY 
+[32minfo[39m: 2026-03-14T14:10:43.222Z Client connected in tenant
+[32minfo[39m: 2026-03-14T14:10:43.229Z joinChatServer USER William Ramos
+[32minfo[39m: 2026-03-14T14:10:44.116Z Client connected in tenant
+[32minfo[39m: 2026-03-14T14:10:44.129Z joinChatServer USER William Ramos
+[32minfo[39m: 2026-03-14T14:10:45.203Z Client connected in tenant
+[32minfo[39m: 2026-03-14T14:10:45.206Z joinChatServer USER William Ramos
+[32minfo[39m: 2026-03-14T14:10:47.878Z Client connected in tenant
+[32minfo[39m: 2026-03-14T14:10:47.886Z joinChatServer USER William Ramos
+[33mwarn[39m: 2026-03-14T14:10:58.443Z Invalid token.
+[32minfo[39m: 2026-03-14T14:11:00.011Z SendMessageSchenduled Initiated
+[32minfo[39m: 2026-03-14T14:11:00.018Z Finalized SendMessageSchenduled
+[31merror[39m: 2026-03-14T14:11:35.638Z WHERE parameter "email" has invalid "undefined" value - Error: WHERE parameter "email" has invalid "undefined" value
+    at PostgresQueryGenerator.whereItemQuery (/home/william/Documentos/projetos/comunication/backend/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2184:13)
+    at /home/william/Documentos/projetos/comunication/backend/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2173:25
+    at Array.forEach (<anonymous>)
+    at PostgresQueryGenerator.whereItemsQuery (/home/william/Documentos/projetos/comunication/backend/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2171:35)
+    at PostgresQueryGenerator.getWhereConditions (/home/william/Documentos/projetos/comunication/backend/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2583:19)
+    at PostgresQueryGenerator.selectQuery (/home/william/Documentos/projetos/comunication/backend/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1315:28)
+    at QueryInterface.select (/home/william/Documentos/projetos/comunication/backend/node_modules/sequelize/lib/query-interface.js:1127:27)
+    at /home/william/Documentos/projetos/comunication/backend/node_modules/sequelize/lib/model.js:1759:34
+    at bound (node:domain:433:15)
+    at runBound (node:domain:444:12)
+    at tryCatcher (/home/william/Documentos/projetos/comunication/backend/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/home/william/Documentos/projetos/comunication/backend/node_modules/bluebird/js/release/promise.js:547:31)
+    at Promise._settlePromise (/home/william/Documentos/projetos/comunication/backend/node_modules/bluebird/js/release/promise.js:604:18)
+    at Promise._settlePromise0 (/home/william/Documentos/projetos/comunication/backend/node_modules/bluebird/js/release/promise.js:649:10)
+    at Promise._settlePromises (/home/william/Documentos/projetos/comunication/backend/node_modules/bluebird/js/release/promise.js:729:18)
+    at _drainQueueStep (/home/william/Documentos/projetos/comunication/backend/node_modules/bluebird/js/release/async.js:93:12)
+    at _drainQueue (/home/william/Documentos/projetos/comunication/backend/node_modules/bluebird/js/release/async.js:86:9)
+    at Async._drainQueues (/home/william/Documentos/projetos/comunication/backend/node_modules/bluebird/js/release/async.js:102:5)
+    at Immediate.Async.drainQueues (/home/william/Documentos/projetos/comunication/backend/node_modules/bluebird/js/release/async.js:15:14)
+    at processImmediate (node:internal/timers:484:21)
+    at process.topLevelDomainCallback (node:domain:161:15)
+    at process.callbackTrampoline (node:internal/async_hooks:128:24)
+(node:51993) [DEP0097] DeprecationWarning: Using a domain property in MakeCallback is deprecated. Use the async_context variant of MakeCallback or the AsyncResource class instead. (Triggered by calling processImmediate on process.)
+[33mwarn[39m: 2026-03-14T14:11:50.668Z Token was not provided.
+[32minfo[39m: 2026-03-14T14:12:00.011Z SendMessageSchenduled Initiated
+[32minfo[39m: 2026-03-14T14:12:00.017Z Finalized SendMessageSchenduled
+[32minfo[39m: 2026-03-14T14:12:53.679Z SOCKET Client disconnected , 1, forced close
+[32minfo[39m: 2026-03-14T14:12:53.680Z SOCKET Client disconnected , 1, forced close
+[32minfo[39m: 2026-03-14T14:12:53.680Z SOCKET Client disconnected , 1, forced close
+[32minfo[39m: 2026-03-14T14:12:53.681Z SOCKET Client disconnected , 1, forced close

@@ -29,6 +29,9 @@ import * as QueueJobs from "../libs/Queue";
 import { logger } from "../utils/logger";
 import Role from "../models/Role";
 import Feature from "../models/Feature";
+import Charge from "../models/Charge";
+import ChargeSequence from "../models/ChargeSequence";
+import ChargeSequenceContact from "../models/ChargeSequenceContact";
 
 interface CustomSequelize extends Sequelize {
   afterConnect?: any;
@@ -69,7 +72,10 @@ const models = [
   LogTicket,
   ChatFlow,
   Role,
-  Feature
+  Feature,
+  Charge,
+  ChargeSequence,
+  ChargeSequenceContact
 ];
 
 sequelize.addModels(models);

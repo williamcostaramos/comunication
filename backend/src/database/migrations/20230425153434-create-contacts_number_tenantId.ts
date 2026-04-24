@@ -2,18 +2,14 @@ import { QueryInterface } from "sequelize";
 
 module.exports = {
   up: (queryInterface: QueryInterface) => {
-    return Promise.all([
-      queryInterface.sequelize.query(`
-        CREATE UNIQUE INDEX Contacts_number_tenantId ON "Contacts" (number, "tenantId");
-      `),
-      // Outras alterações que você precisa executar na migração, se houver
-    ]);
+    return queryInterface.sequelize.query(`
+      CREATE UNIQUE INDEX IF NOT EXISTS Contacts_number_tenantId ON "Contacts" (number, "tenantId");
+    `);
   },
 
   down: (queryInterface: QueryInterface) => {
-    return Promise.all([
-      queryInterface.removeIndex("Contacts", "Contacts_number_tenantId"),
-      // Outras alterações de rollback que você precisa executar na migração, se houver
-    ]);
+    return queryInterface.sequelize.query(`
+      DROP INDEX IF EXISTS Contacts_number_tenantId;
+    `);
   }
 };

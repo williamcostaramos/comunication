@@ -83,6 +83,49 @@ export const sendMessageAPI = async (
   return res.status(200).json({ message: "Message add queue" });
 };
 
+export const sendMessageDirect = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  const { tenantId, sessionId } = req.APIAuth;
+  const { apiId } = req.params;
+  const media = req.file as Express.Multer.File;
+
+  const APIConfig = await ApiConfig.findOne({
+    where: { id: apiId, tenantId }
+  });
+
+  if (APIConfig?.sessionId !== sessionId) {
+    throw new AppError("ERR_SESSION_NOT_AUTH_TOKEN", 403);
+  }
+
+  const newMessage = {
+    ...req.body,
+    apiId,
+    sessionId,
+    tenantId,
+    apiConfig: APIConfig,
+    media
+  };
+
+  const schema = Yup.object().shape({
+    body: Yup.string().required(),
+    number: Yup.string().required(),
+    externalKey: Yup.string().required(),
+    tenantId: Yup.number().required()
+  });
+
+  try {
+    await schema.validate(newMessage);
+  } catch (error) {
+    throw new AppError(error.message);
+  }
+
+  Queue.add("SendMessageAPIDirect", newMessage);
+
+  return res.status(200).json({ message: "Message add queue" });
+};
+
 export const startSession = async (
   req: Request,
   res: Response

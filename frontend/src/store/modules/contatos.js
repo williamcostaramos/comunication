@@ -1,8 +1,12 @@
 const contatos = {
   state: {
-    contatos: []
+    contatos: [],
+    loading: false
   },
   mutations: {
+    SET_LOADING (state, loading) {
+      state.loading = loading
+    },
     LOAD_CONTACTS (state, payload) {
       const contacts = payload
       const newContacts = []
@@ -14,16 +18,15 @@ const contatos = {
           newContacts.push(contact)
         }
       })
-      return [...state.contatos, ...newContacts]
+      state.contatos = [...state.contatos, ...newContacts]
     },
     UPDATE_CONTACTS (state, payload) {
       const contact = payload
       const contactIndex = state.contatos.findIndex(c => c.id === contact.id)
       if (contactIndex !== -1) {
         state.contatos[contactIndex] = contact
-        return [...state.contatos]
       } else {
-        return [contact, ...state.contatos]
+        state.contatos = [contact, ...state.contatos]
       }
     },
     DELETE_CONTACT (state, payload) {
@@ -32,11 +35,29 @@ const contatos = {
       if (contactIndex !== -1) {
         state.contatos.splice(contactIndex, 1)
       }
-      return [...state.contatos]
+      state.contatos = [...state.contatos]
     },
     RESET_CONTACT (state) {
       state.contatos = []
-      return []
+    }
+  },
+  getters: {
+    todosContatos: state => state.contatos
+  },
+  actions: {
+    async carregarContatos ({ commit }, searchTerm = '') {
+      try {
+        const { ListarContatos } = await import('src/service/contatos')
+        commit('SET_LOADING', true)
+        const params = searchTerm ? { search: searchTerm } : {}
+        const response = await ListarContatos(params)
+        const contatos = Array.isArray(response.data) ? response.data : response.data.data || response.data.contacts || []
+        commit('LOAD_CONTACTS', contatos)
+      } catch (error) {
+        console.error('Erro ao carregar contatos:', error)
+      } finally {
+        commit('SET_LOADING', false)
+      }
     }
   }
 }

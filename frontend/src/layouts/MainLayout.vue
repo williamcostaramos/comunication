@@ -282,6 +282,12 @@ const objMenu = [
     caption: 'Lista de contatos',
     icon: 'mdi-card-account-mail',
     routeName: 'contatos'
+  },
+  {
+    title: 'Cobranças Recorrentes',
+    caption: 'Sequências de cobrança',
+    icon: 'mdi-cash-multiple',
+    routeName: 'chargeSequences'
   }
 ]
 

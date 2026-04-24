@@ -6,14 +6,10 @@
 
 # Build-time arguments for front-end configuration. These will be passed
 # into the Quasar build process via environment variables.
-ARG VUE_URL_API
-ARG VUE_FACEBOOK_APP_ID
+
 
 FROM node:16-alpine AS builder
 
-# propagate build args into the environment so quasar.conf.js can read them
-ENV VUE_URL_API=${VUE_URL_API}
-ENV VUE_FACEBOOK_APP_ID=${VUE_FACEBOOK_APP_ID}
 
 # Set working directory inside the container
 WORKDIR /app
@@ -37,8 +33,7 @@ FROM nginx:alpine
 
 # Optional runtime environment variables (mostly useful if you later add
 # a startup script that injects them into a JS config file).
-ENV VUE_URL_API
-ENV VUE_FACEBOOK_APP_ID=${VUE_FACEBOOK_APP_ID}
+
 
 # Remove the default nginx content and replace with our built SPA
 RUN rm -rf /usr/share/nginx/html/*

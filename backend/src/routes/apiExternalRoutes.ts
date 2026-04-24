@@ -29,6 +29,13 @@ apiExternalRoute.post(
 );
 
 apiExternalRoute.post(
+  "/v1/api/external/:apiId/send-direct",
+  isAPIAuth,
+  upload.single("media"),
+  APIExternalController.sendMessageDirect
+);
+
+apiExternalRoute.post(
   "/v1/api/external/:apiId/start-session",
   isAPIAuth,
   APIExternalController.startSession

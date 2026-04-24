@@ -1,4 +1,4 @@
-import { ConsultarDadosTicket, LocalizarMensagens } from 'src/service/tickets'
+import { ConsultarTickets, ConsultarDadosTicket, LocalizarMensagens } from 'src/service/tickets'
 import { Notify } from 'quasar'
 import $router from 'src/router'
 import { orderBy } from 'lodash'
@@ -371,6 +371,16 @@ const atendimentoTicket = {
     }
   },
   actions: {
+    async carregarTicketsParaBusca ({ commit }, searchTerm = '') {
+      try {
+        const params = searchTerm ? { search: searchTerm } : {}
+        const response = await ConsultarTickets(params)
+        const tickets = Array.isArray(response.data) ? response.data : response.data.tickets || []
+        commit('LOAD_TICKETS', tickets)
+      } catch (error) {
+        console.error('Erro ao carregar tickets:', error)
+      }
+    },
     async LocalizarMensagensTicket ({ commit, dispatch }, params) {
       const mensagens = await LocalizarMensagens(params)
       // commit('TICKET_FOCADO', mensagens.data.ticket)

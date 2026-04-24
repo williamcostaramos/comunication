@@ -6,6 +6,8 @@ import atendimentoTicket from './modules/atendimentoTicket'
 import notifications from './modules/Notifications'
 import chatFlow from './modules/chatFlow'
 import usersApp from './modules/usersApp'
+import charges from './modules/charges'
+import contatos from './modules/contatos'
 import getters from './getters'
 // import example from './module-example'
 
@@ -30,7 +32,9 @@ export default function (/* { ssrContext } */) {
       atendimentoTicket,
       whatsapp,
       chatFlow,
-      usersApp
+      usersApp,
+      charges,
+      contatos
     },
 
     // enable strict mode (adds overhead!)

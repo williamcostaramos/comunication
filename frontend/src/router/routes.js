@@ -69,6 +69,16 @@ const routes = [
         component: () => import('pages/campanhas/ContatosCampanha.vue')
       },
       {
+        path: '/charge-sequences',
+        name: 'chargeSequences',
+        component: () => import('pages/chargeSequences/Index.vue')
+      },
+      {
+        path: '/charge-sequences/:chargeSequenceId',
+        name: 'contatos-sequencia',
+        component: () => import('pages/chargeSequences/ContatosSequenciaCobranca.vue')
+      },
+      {
         path: '/horario-atendimento',
         name: 'horarioAtendimento',
         component: () => import('pages/horarioAtendimento/Index.vue')

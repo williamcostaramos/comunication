@@ -145,14 +145,4 @@ class Message extends Model<Message> {
   idFront: string;
 }
 
-// Message.sequelize?.define("Message", {
-//   quotedMsgId: {
-//     type: DataType.STRING,
-//     references: {
-//       model: Message,
-//       key: "messageId"
-//     }
-//   }
-// });
-
 export default Message;

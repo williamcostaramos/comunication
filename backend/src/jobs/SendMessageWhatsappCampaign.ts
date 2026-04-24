@@ -48,7 +48,6 @@ export default {
         },
         { where: { id: data.campaignContact.id } }
       );
-
       return message;
     } catch (error) {
       logger.error(`Error enviar message campaign: ${error}`);
